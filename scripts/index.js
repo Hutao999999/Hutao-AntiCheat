@@ -1,11 +1,37 @@
-const input = document.querySelector("input")
-const save = document.querySelector("button#save")
-const take = document.querySelector("button#take")
+const homeButton = document.querySelector("header .navigation #home")
+const discordButton = document.querySelector("header .navigation #discord")
+const aboutButton = document.querySelector("header .navigation #about")
 
-save.addEventListener("click", ev => {
-  localStorage.setItem("test", input.value)
+const homePage = document.querySelector(".home")
+const discordPage = document.querySelector(".discord")
+const aboutPage = document.querySelector(".about")
+
+const joinDiscord = document.querySelector(".discord .board #discord")
+
+homeButton.addEventListener("click", () => {
+  reset()
+
+  homePage.classList.add("selected")
 })
 
-take.addEventListener("click", ev => {
-  console.log(localStorage.getItem("test"))
+discordButton.addEventListener("click", () => {
+  reset()
+
+  discordPage.classList.add("selected")
 })
+
+aboutButton.addEventListener("click", () => {
+  reset()
+
+  aboutPage.classList.add("selected")
+})
+
+joinDiscord.addEventListener("click", () => {
+  window.location = "https://discord.gg/2P3PfYvMqp"
+})
+
+const reset = () => {
+  homePage.classList.remove("selected")
+  discordPage.classList.remove("selected")
+  aboutPage.classList.remove("selected")
+}

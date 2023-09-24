@@ -1,13 +1,160 @@
-body,
-html {
-  height: 100%;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.background {
-  background-image: url("../pictures//homepage.jpg");
+body,
+html {
+  width: 100%;
   height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("../pictures//homepage.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  border-bottom: 5px solid white;
+}
+
+.logo {
+  font-size: 2.5em;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s
+}
+
+.logo .title {
+  width: 30px;
+}
+
+.logo:hover {
+  color: rgb(200, 200, 200);
+}
+
+.navigation button {
+  position: relative;
+  font-size: 1.5em;
+  color: white;
+  font-weight: 500;
+  margin-left: 50px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.navigation button::after {
+  content: '';
+  position: absolute;
+  width: 105%;
+  height: 3px;
+  background-color: yellow;
+  left: 0;
+  bottom: -6px;
+  transform: scaleX(0);
+  transition: 0.2s;
+}
+
+.navigation button:hover::after {
+  transform: scaleX(1);
+}
+
+.home,
+.discord,
+.about {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: scaleY(0);
+  transition: 0.5s;
+}
+
+.home.selected,
+.discord.selected,
+.about.selected {
+  transform: scaleY(1);
+  transition-delay: 0.5s;
+}
+
+.home .board,
+.discord .board,
+.about .board {
+  min-width: 175px;
+  width: 30%;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: white;
+  flex-direction: column;
+}
+
+.home .board .title,
+.discord .board .title,
+.about .board .title {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.home .board .description,
+.discord .board .description,
+.about .board .description {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.home .board #downloadAntiCheat,
+.discord .board #discord {
+  min-width: 120px;
+  width: 30%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  margin-top: 30px;
+  outline: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  border: 1px solid white;
+  transition: 0.3s;
+}
+
+.home .board:hover #downloadAntiCheat,
+.discord .board:hover #discord {
+  width: 32%;
+}
+
+.home .board #downloadAntiCheat:hover,
+.discord .board #discord:hover {
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgb(200, 200, 200);
 }
